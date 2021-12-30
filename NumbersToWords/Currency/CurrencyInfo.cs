@@ -11,6 +11,8 @@ namespace NumbersToWords
         /// </summary>
         public Boolean IsCurrencyNameFeminine { get; set; }
 
+        public int PartPrecision { get; set; }
+
         /// <summary>
         /// English Currency Name for single use
         /// Syrian Pound
@@ -104,11 +106,15 @@ namespace NumbersToWords
 
         #region Constructors
 
+        public CurrencyInfo()
+        { }
+
         public CurrencyInfo(Currency currency)
         {
             switch (currency)
             {
                 case Currency.SYP:
+                    PartPrecision = 2;
                     IsCurrencyNameFeminine = true;
                     EnglishCurrencyName = "Syrian Pound";
                     EnglishPluralCurrencyName = "Syrian Pounds";
@@ -126,6 +132,7 @@ namespace NumbersToWords
                     break;
 
                 case Currency.AED:
+                    PartPrecision = 2;
                     IsCurrencyNameFeminine = false;
                     EnglishCurrencyName = "Jordanian Dinar";
                     EnglishPluralCurrencyName = "Jordanian Dinars";
@@ -143,6 +150,7 @@ namespace NumbersToWords
                     break;
 
                 case Currency.SAR:
+                    PartPrecision = 2;
                     IsCurrencyNameFeminine = false;
                     EnglishCurrencyName = "Saudi Riyal";
                     EnglishPluralCurrencyName = "Saudi Riyals";
@@ -160,6 +168,7 @@ namespace NumbersToWords
                     break;
 
                 case Currency.TND:
+                    PartPrecision = 2;
                     IsCurrencyNameFeminine = false;
                     EnglishCurrencyName = "Tunisian Dinar";
                     EnglishPluralCurrencyName = "Tunisian Dinars";
@@ -177,6 +186,7 @@ namespace NumbersToWords
                     break;
 
                 case Currency.GOLD:
+                    PartPrecision = 2;
                     IsCurrencyNameFeminine = false;
                     EnglishCurrencyName = "Gram";
                     EnglishPluralCurrencyName = "Grams";

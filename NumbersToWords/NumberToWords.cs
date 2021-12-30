@@ -69,7 +69,10 @@ namespace NumbersToWords
             else
                 throw new NotSupportedException("Not supported culture");
 
-            return converter.Convert(number, currency.HasValue ? new CurrencyInfo(currency.Value) : null).Trim();
+            if (currency == null)
+                return converter.Convert(number, null).Trim();
+            else
+                return converter.Convert(number, new CurrencyInfo(currency.Value)).Trim();
         }
     }
 }
