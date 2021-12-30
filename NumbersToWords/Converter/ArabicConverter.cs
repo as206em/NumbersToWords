@@ -68,17 +68,20 @@ namespace NumbersToWords.Converter
         /// <returns></returns>
         private string GetDigitFeminineStatus(int digit, int groupLevel, CurrencyInfo Currency)
         {
+            bool IsCurrencyPartNameFeminine = Currency?.IsCurrencyPartNameFeminine ?? false;
+            bool IsCurrencyNameFeminine = Currency?.IsCurrencyNameFeminine ?? false;
+
             if (groupLevel == -1)
             {
                 // if it is in the decimal part
-                if (Currency.IsCurrencyPartNameFeminine && Currency != null)
+                if (IsCurrencyPartNameFeminine)
                     return arabicFeminineOnes[digit]; // use feminine field
                 else
                     return arabicOnes[digit];
             }
             else if (groupLevel == 0)
             {
-                if (Currency.IsCurrencyNameFeminine && Currency != null)
+                if (IsCurrencyNameFeminine)
                     return arabicFeminineOnes[digit]; // use feminine field
                 else
                     return arabicOnes[digit];
@@ -174,6 +177,11 @@ namespace NumbersToWords.Converter
             if (tempNumber == 0)
                 return "صفر";
 
+            if (Number < 10 && Currency == null)
+            {
+                return arabicOnes[(int)Number];
+            }
+
             // Get Text for the decimal part
             string decimalString = ProcessArabicGroup(_decimalValue, -1, 0, Currency);
 
@@ -232,21 +240,19 @@ namespace NumbersToWords.Converter
                 // here we add currency name depending on _intergerValue : 1 ,2 , 3--->10 , 11--->99
                 int remaining100 = (int)(_intergerValue % 100);
 
-                if (remaining100 == 0 && Currency != null)
-                    formattedNumber += Currency.Arabic1CurrencyName;
-                else if (remaining100 == 1 && Currency != null)
-                    formattedNumber += Currency.Arabic1CurrencyName;
+                if (remaining100 == 0)
+                    formattedNumber += Currency?.Arabic1CurrencyName ?? "واحد";
+                else if (remaining100 == 1)
+                    formattedNumber += Currency?.Arabic1CurrencyName ?? "واحد";
                 else if (remaining100 == 2)
                 {
-                    if (_intergerValue == 2 && Currency != null)
-                        formattedNumber += Currency.Arabic2CurrencyName;
-                    else if (Currency != null)
-                        formattedNumber += Currency.Arabic1CurrencyName;
+                    if (_intergerValue == 2)
+                        formattedNumber += Currency?.Arabic2CurrencyName ?? "اثنان";
                 }
-                else if (remaining100 >= 3 && remaining100 <= 10 && Currency != null)
-                    formattedNumber += Currency.Arabic310CurrencyName;
-                else if (remaining100 >= 11 && remaining100 <= 99 && Currency != null)
-                    formattedNumber += Currency.Arabic1199CurrencyName;
+                else if (remaining100 >= 3 && remaining100 <= 10)
+                    formattedNumber += Currency?.Arabic310CurrencyName ?? "--";
+                else if (remaining100 >= 11 && remaining100 <= 99)
+                    formattedNumber += Currency?.Arabic1199CurrencyName ?? "واحد";
             }
 
             formattedNumber += (_decimalValue != 0) ? " و " : String.Empty;
@@ -258,16 +264,16 @@ namespace NumbersToWords.Converter
 
                 int remaining100 = (int)(_decimalValue % 100);
 
-                if (remaining100 == 0 && Currency != null)
-                    formattedNumber += Currency.Arabic1CurrencyPartName;
-                else if (remaining100 == 1 && Currency != null)
-                    formattedNumber += Currency.Arabic1CurrencyPartName;
-                else if (remaining100 == 2 && Currency != null)
-                    formattedNumber += Currency.Arabic2CurrencyPartName;
-                else if (remaining100 >= 3 && remaining100 <= 10 && Currency != null)
-                    formattedNumber += Currency.Arabic310CurrencyPartName;
-                else if (remaining100 >= 11 && remaining100 <= 99 && Currency != null)
-                    formattedNumber += Currency.Arabic1199CurrencyPartName;
+                if (remaining100 == 0)
+                    formattedNumber += Currency?.Arabic1CurrencyPartName ?? "واحد";
+                else if (remaining100 == 1)
+                    formattedNumber += Currency?.Arabic1CurrencyPartName ?? "واحد";
+                else if (remaining100 == 2)
+                    formattedNumber += Currency?.Arabic2CurrencyPartName ?? "اثنان";
+                else if (remaining100 >= 3 && remaining100 <= 10)
+                    formattedNumber += Currency?.Arabic310CurrencyPartName ?? "-";
+                else if (remaining100 >= 11 && remaining100 <= 99)
+                    formattedNumber += Currency?.Arabic1199CurrencyPartName ?? "واحد";
             }
 
             return formattedNumber;

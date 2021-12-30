@@ -4,22 +4,8 @@ namespace NumbersToWords
 {
     internal class CurrencyInfo
     {
-        #region Properties
-
         /// <summary>
-        /// Currency ID
-        /// </summary>
-        public int CurrencyID { get; set; }
-
-        /// <summary>
-        /// Standard Code
-        /// Syrian Pound: SYP
-        /// UAE Dirham: AED
-        /// </summary>
-        public string CurrencyCode { get; set; }
-
-        /// <summary>
-        /// Is the currency name feminine ( Mua'anath مؤنث)
+        /// Is the currency name feminine for Arabic language ( Mua'anath مؤنث)
         /// ليرة سورية : مؤنث = true
         /// درهم : مذكر = false
         /// </summary>
@@ -66,13 +52,6 @@ namespace NumbersToWords
         /// خمسة و سبعون درهماً إماراتياً
         /// </summary>
         public string Arabic1199CurrencyName { get; set; }
-
-        /// <summary>
-        /// Decimal Part Precision
-        /// for Syrian Pounds: 2 ( 1 SP = 100 parts)
-        /// for Tunisian Dinars: 3 ( 1 TND = 1000 parts)
-        /// </summary>
-        public Byte PartPrecision { get; set; }
 
         /// <summary>
         /// Is the currency part name feminine ( Mua'anath مؤنث)
@@ -123,8 +102,6 @@ namespace NumbersToWords
         /// </summary>
         public string Arabic1199CurrencyPartName { get; set; }
 
-        #endregion Properties
-
         #region Constructors
 
         public CurrencyInfo(Currency currency)
@@ -132,8 +109,6 @@ namespace NumbersToWords
             switch (currency)
             {
                 case Currency.SYP:
-                    CurrencyID = 0;
-                    CurrencyCode = "SYP";
                     IsCurrencyNameFeminine = true;
                     EnglishCurrencyName = "Syrian Pound";
                     EnglishPluralCurrencyName = "Syrian Pounds";
@@ -147,13 +122,10 @@ namespace NumbersToWords
                     Arabic2CurrencyPartName = "قرشان";
                     Arabic310CurrencyPartName = "قروش";
                     Arabic1199CurrencyPartName = "قرشاً";
-                    PartPrecision = 2;
                     IsCurrencyPartNameFeminine = false;
                     break;
 
                 case Currency.AED:
-                    CurrencyID = 1;
-                    CurrencyCode = "ـ]";
                     IsCurrencyNameFeminine = false;
                     EnglishCurrencyName = "Jordanian Dinar";
                     EnglishPluralCurrencyName = "Jordanian Dinars";
@@ -167,13 +139,10 @@ namespace NumbersToWords
                     Arabic2CurrencyPartName = "فلسان";
                     Arabic310CurrencyPartName = "فلوس";
                     Arabic1199CurrencyPartName = "فلساً";
-                    PartPrecision = 2;
                     IsCurrencyPartNameFeminine = false;
                     break;
 
                 case Currency.SAR:
-                    CurrencyID = 2;
-                    CurrencyCode = "SAR";
                     IsCurrencyNameFeminine = false;
                     EnglishCurrencyName = "Saudi Riyal";
                     EnglishPluralCurrencyName = "Saudi Riyals";
@@ -187,13 +156,10 @@ namespace NumbersToWords
                     Arabic2CurrencyPartName = "هللتان";
                     Arabic310CurrencyPartName = "هللات";
                     Arabic1199CurrencyPartName = "هللة";
-                    PartPrecision = 2;
                     IsCurrencyPartNameFeminine = true;
                     break;
 
                 case Currency.TND:
-                    CurrencyID = 3;
-                    CurrencyCode = "TND";
                     IsCurrencyNameFeminine = false;
                     EnglishCurrencyName = "Tunisian Dinar";
                     EnglishPluralCurrencyName = "Tunisian Dinars";
@@ -207,13 +173,10 @@ namespace NumbersToWords
                     Arabic2CurrencyPartName = "مليمان";
                     Arabic310CurrencyPartName = "ملاليم";
                     Arabic1199CurrencyPartName = "مليماً";
-                    PartPrecision = 3;
                     IsCurrencyPartNameFeminine = false;
                     break;
 
                 case Currency.GOLD:
-                    CurrencyID = 4;
-                    CurrencyCode = "XAU";
                     IsCurrencyNameFeminine = false;
                     EnglishCurrencyName = "Gram";
                     EnglishPluralCurrencyName = "Grams";
@@ -227,7 +190,6 @@ namespace NumbersToWords
                     Arabic2CurrencyPartName = "ملجرامان";
                     Arabic310CurrencyPartName = "ملجرامات";
                     Arabic1199CurrencyPartName = "ملجراماً";
-                    PartPrecision = 2;
                     IsCurrencyPartNameFeminine = false;
                     break;
             }
@@ -236,3 +198,12 @@ namespace NumbersToWords
         #endregion Constructors
     }
 }
+
+// number Arabic
+// number English
+// number Japanese
+// number Chines
+// number French
+
+// currency English
+// currency Arabic
