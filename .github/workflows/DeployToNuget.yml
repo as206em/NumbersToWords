@@ -28,7 +28,10 @@ jobs:
 
     - name: 'Build project'
       run: dotnet build ${{ env.PROJECT_PATH }} --no-restore --configuration Release
-
+    
+    - name: 'Run Tests'
+      run: dotnet test
+      
     - name: 'Get Version'
       id: version
       uses: battila7/get-version-action@v2
