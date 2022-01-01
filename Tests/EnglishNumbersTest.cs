@@ -93,7 +93,7 @@ namespace Tests
         private void Convert_17491_toArabic()
         {
             var words = NumbersToWords.NumberToWords.Convert(17491, new CultureInfo("en"));
-            Assert.Equal("سبعة عشر ألفاً و أربعمائة و واحد و تسعون", words);
+            Assert.Equal("Seventeen Thousand Four Hundred Ninety One", words);
         }
     }
 }

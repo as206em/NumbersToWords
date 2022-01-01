@@ -86,14 +86,14 @@ namespace Tests
         private void Convert_1491_toArabic()
         {
             var words = NumbersToWords.NumberToWords.Convert(1491, NumbersToWords.Currency.SYP, new CultureInfo("en"));
-            Assert.Equal("ألف و أربعمائة و إحدى و تسعون ليرة سورية", words);
+            Assert.Equal("One Thousand Four Hundred Ninety One Syrian Pounds", words);
         }
 
         [Fact]
         private void Convert_17491_toArabic()
         {
             var words = NumbersToWords.NumberToWords.Convert(17491, NumbersToWords.Currency.SYP, new CultureInfo("en"));
-            Assert.Equal("سبعة عشر ألفاً و أربعمائة و إحدى و تسعون ليرة سورية", words);
+            Assert.Equal("Seventeen Thousand Four Hundred Ninety One Syrian Pounds", words);
         }
     }
 }
