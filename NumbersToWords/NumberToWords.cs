@@ -64,9 +64,9 @@ namespace NumbersToWords
 
             IConverter converter;
 
-            if ((cultureInfo == null && threadCultureInfo.TwoLetterISOLanguageName == "ar") || cultureInfo.TwoLetterISOLanguageName == "ar")
+            if ((cultureInfo == null && threadCultureInfo.TwoLetterISOLanguageName == "ar") || (cultureInfo != null && cultureInfo.TwoLetterISOLanguageName == "ar"))
                 converter = new ArabicConverter();
-            else if (cultureInfo == null || cultureInfo.TwoLetterISOLanguageName == "en")
+            else if (cultureInfo == null || threadCultureInfo.TwoLetterISOLanguageName == "en")
                 converter = new EnglishConverter();
             else
                 throw new NotSupportedException("Not supported culture");
