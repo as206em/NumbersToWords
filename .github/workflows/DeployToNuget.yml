@@ -1,9 +1,9 @@
 name: "Deploy to NuGet"
 
-on: push
-  #:
-   # tags:
-    #- 'v*'
+on: 
+  push:
+    tags:
+    - 'v*'
 
 env:
   PROJECT_PATH: 'NumbersToWords/NumbersToWords.csproj'
