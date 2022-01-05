@@ -40,7 +40,7 @@ jobs:
       run: echo "${{ steps.version.outputs.version-without-v }}"
       
     - name: 'Pack project'
-      run: dotnet pack ${{ env.PROJECT_PATH }} --no-restore --include-symbols --no-build --configuration Release --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }} -p:PackageVersion=${{ steps.version.outputs.version-without-v }}
+      run: dotnet pack ${{ env.PROJECT_PATH }}  --no-restore --include-symbols --no-build --configuration Release --output ${{ env.PACKAGE_OUTPUT_DIRECTORY }} -p:PackageVersion=${{ steps.version.outputs.version-without-v }}
 
     - name: 'Push package'
       run: dotnet nuget push '${{ env.PACKAGE_OUTPUT_DIRECTORY }}/*.nupkg' -k ${{ secrets.NUGET_API_KEY }} -s ${{ env.NUGET_SOURCE_URL }} --skip-duplicate
