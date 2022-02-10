@@ -1,4 +1,6 @@
 [![Run Tests](https://github.com/as206em/NumbersToWords/actions/workflows/RunTests.yml/badge.svg)](https://github.com/as206em/NumbersToWords/actions/workflows/RunTests.yml)
+![Nuget](https://img.shields.io/nuget/v/NumbersToWordsConverter)
+![Nuget](https://img.shields.io/nuget/dt/NumbersToWordsConverter)
 
 # NumbersToWords
 Simple helper to convert numbers and prices into words with multiple languages and currencies support.
