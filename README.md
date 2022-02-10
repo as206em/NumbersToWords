@@ -1,3 +1,5 @@
+[![Run Tests](https://github.com/as206em/NumbersToWords/actions/workflows/RunTests.yml/badge.svg)](https://github.com/as206em/NumbersToWords/actions/workflows/RunTests.yml)
+
 # NumbersToWords
 Simple helper to convert numbers and prices into words with multiple languages and currencies support.
 
@@ -17,13 +19,13 @@ Supported currencies:
 *Output*: Twinty Two.
 
 `NumberToWords.Convert(22, new CultureInfo("ar"));`
-*Output*: «À‰«‰ Ê⁄‘—Ê‰.
+*Output*: √á√ã√§√á√§ √¶√ö√î√ë√¶√§.
 
 `NumberToWords.Convert(22, Currency.USD);`
 *Output*: Twinty Two USD.
 
 `NumberToWords.Convert(22, Currency.SYP, new CultureInfo("ar"));`
-*Output*: «À‰« Ê⁄‘—Ê‰ ·Ì—… ”Ê—Ì….
+*Output*: √á√ã√§√á √¶√ö√î√ë√¶√§ √°√≠√ë√â √ì√¶√ë√≠√â.
 
 `NumberToWords.Convert(22, Currency.SYP, new CultureInfo("en"));`
 *Output*: Twinty Two Syrian pounds.
